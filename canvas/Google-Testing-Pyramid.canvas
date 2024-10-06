@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"fb5b25b0434e0558","x":-76,"y":-320,"width":140,"height":60,"type":"text","text":"**E2E** (10%)"},
+		{"id":"33fd9bb230bf1144","x":-106,"y":-240,"width":201,"height":60,"type":"text","text":"**Integration** (20%)"},
+		{"id":"c751d26e6e1e6d01","x":-130,"y":-160,"width":250,"height":60,"type":"text","text":"**Unit** (70%)"},
+		{"id":"fe29790a0d4a2f42","x":-314,"y":-420,"width":208,"height":60,"type":"text","text":"Mais lento e  caro"},
+		{"id":"4e23e1b70b93df02","x":-324,"y":-60,"width":229,"height":60,"type":"text","text":"Mais rápido e barato"}
+	],
+	"edges":[
+		{"id":"fcc90fc9cf73d79e","fromNode":"fe29790a0d4a2f42","fromSide":"bottom","toNode":"4e23e1b70b93df02","toSide":"top","fromEnd":"arrow"}
+	]
+}
