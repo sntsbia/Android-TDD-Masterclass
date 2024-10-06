@@ -3,7 +3,7 @@
 ## O que é?
 
 1. Cada teste direciona o desenvolvimento da aplicação;
-2. [Testes](Glossário#testes) unitários são escritos antes do desenvolvimento do código a ser validado;
+2. [Testes](Glossario.md#testes) unitários são escritos antes do desenvolvimento do código a ser validado;
 3. Define como o desenvolvimento será direcionado;
 4. É uma metodologia/processo de desenvolvimento
 
@@ -13,10 +13,10 @@
 
 1. Melhor entendimento dos requisitos do produto;
 2. Desenvolvimento mais rápido: tempo salvo em debuging;
-3. Código com maior qualidade, com alta coesão e baixo [acoplamento](Glossário#acoplamento);
+3. Código com maior qualidade, com alta coesão e baixo [acoplamento](Glossario.md#acoplamento);
 4. Menos defeitos;
 5. Promove cultura de alta qualidade na organização;
-6. Herança de conjunto de testes de [Regressão](Glossário#regressão)
+6. Herança de conjunto de testes de [Regressão](Glossario.md#regressão)
 7. Escrita de documentação: descrição do que o sistema está fazendo e assegurando que ele funciona;
 
 > Garantimos que a aplicação está cumprindo as condições para serem testados mais facilmente, além de ser mais fácil de ler e manter
