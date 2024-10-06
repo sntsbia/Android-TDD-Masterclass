@@ -1,6 +1,6 @@
 package com.example.myfirstunittest
 
-class Motor (
+data class Motor (
     val centimetrosCubicos: Int,
     val cavalosPotencia: Int,
     var temperatura: Int,
