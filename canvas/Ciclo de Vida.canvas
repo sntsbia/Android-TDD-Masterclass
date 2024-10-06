@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"6dd5e59d4e10094c","type":"text","text":"**2. GREEN**","x":-40,"y":-300,"width":140,"height":60,"color":"4"},
+		{"id":"aa4eae61f3ddb696","type":"text","text":"**1. RED**\n","x":-220,"y":-420,"width":133,"height":60,"color":"1"},
+		{"id":"2e920a46b255b26d","type":"text","text":"**3. REFACTOR**","x":-239,"y":-180,"width":172,"height":60,"color":"#2758ec"}
+	],
+	"edges":[
+		{"id":"96bf0aeae1a6e2bb","fromNode":"aa4eae61f3ddb696","fromSide":"right","toNode":"6dd5e59d4e10094c","toSide":"top"},
+		{"id":"ba87fbcb765b9a89","fromNode":"6dd5e59d4e10094c","fromSide":"bottom","toNode":"2e920a46b255b26d","toSide":"right"},
+		{"id":"ec15f9cbd0f40ba5","fromNode":"2e920a46b255b26d","fromSide":"left","toNode":"aa4eae61f3ddb696","toSide":"left"}
+	]
+}
