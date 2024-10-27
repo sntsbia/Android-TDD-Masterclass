@@ -25,7 +25,7 @@
 
 ---
 
-## [Ciclo de Vida do TDD](Ciclo-de-Vida.canvas)
+## [Ciclo de Vida do TDD](../canvas/Ciclo-de-Vida.canvas)
 
 ### Red (Vermelho)
 -  Escrever teste unitário na intenção de validar uma nova funcionalidade (Inicialmente vai falhar, pois não há código em produção que implemente essa funcionalidade)
@@ -79,7 +79,7 @@
 
 ---
 
-## [Google Testing Pyramid](Google-Testing-Pyramid.canvas)
+## [Google Testing Pyramid](../canvas/Google-Testing-Pyramid.canvas)
 
 -  **Unit**: Fácil de escrever, roda rápido e indica o erro exato 
 - **E2E**: Mais difícil de escrever para aplicações *android*; roda lento (por precisar *buildar* e instalar toda a aplicação no dispositivo) e, como testa todo o cenário do usuário, quando falha, não há como dizer a razão do *bug* imediatamente (precisa debugar a aplicação ou o teste unitário revelar o erro)
