@@ -85,6 +85,54 @@
 - **E2E**: Mais difícil de escrever para aplicações *android*; roda lento (por precisar *buildar* e instalar toda a aplicação no dispositivo) e, como testa todo o cenário do usuário, quando falha, não há como dizer a razão do *bug* imediatamente (precisa debugar a aplicação ou o teste unitário revelar o erro)
 	- É bom para testes de regressão
 
-
 ---
+
+## Types of TDD
+
+Os dois tipos concordam que o desenvolvimento baseadon em testes é uma ferramenta efetiva, mas o aplicam de formas diferentes
+
+> [!IMPORTANT] Classicist (Escola de Chicago ou Detroit / Black Box Testing)
+> (Uncle Bob)
+> Tipo baseado em testes de dentro pra fora  
+> Não faz o uso de [mocks](Glossario.md#mocks), mas incluem componentes que são instâncias de objetos reais
+> Somente o uso de sistemas *Third Party* e possivelmente o banco de dados da aplicação estão autorizados a serem usados com *mocks*
+> Os testes com essa técnica são desenhados para testar somente os resultados finais, e não as implementações
+ >O design está emergindo: os testes começam no nível unitário e o design supostamente deve emergir dos testes  
+ >Esse tipo de teste somente se importa com o resultado final, independentemente de qual método das classes colaboradoras está sendo chamado
+ > 
+
+>[!IMPORTANT] Outside In (Escola de Londres / White Box Testing)
+> (Steve Freeman)
+>Tipo baseado em interação entre as classes, além do resultado 
+>Esse tipo faz uso vasto de objetos *mock*
+>Praticamente em cada teste, temos somente uma instância de objeto real sob o teste e todas as outras classes e dependências estão sendo *mockadas*
+>Verificamos se a classe sob teste está chamando corretamente os métodos das classes colaboradoras
+>*Upfront design* no início do seu ciclo de desenvolvimento: pensamento sobre o design que deveria acomodar a implementação da *feature* de uma maneira *clean* (design pode ser refatorado depois)
+>Esse tipo de teste se importa com os métodos que são chamados das classes colaboradoras
+>
+
+|             |                                Classicists                                |                                            ==Outside In==                                             |
+| :---------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+|  **Pros**   |                       - Refatoração mais rápida<br>                       | ==- É mais fácil rastrear os erros (3)<br>- Upfront design (4)<br>- Reforça o design de arquitetura== |
+| **Contras** | - Pode ser difícil encontrar o problema (1)<br>- Cobertura redundante (2) |                                 ==- Pode produzir falsos positivos==                                  |
+
+1. Já que não é feito o uso de *mocks*, testes particulares podem falar para *bugs* que estão escondidos dentro das dependências das classes e não na classe sob teste.  Pode ser difícil rastrear e corrigir os erros
+2. Certas partes do código são testadas repetidamente
+3. Os testes mais focados e isolados são normalmente produzidos fora da *entity*, então, na maioria dos casos, é bem óbvio o porquê do teste falhar e o que necessita ser corrigido
+4. Um bom design não acontece por acidente e reservar um tempo para pensar nele desde o início e refatorá-lo depois pode ajudar muito
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
