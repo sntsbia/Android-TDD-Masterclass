@@ -1,4 +1,4 @@
-package com.example.myfirstunittest.ui.theme
+package com.example.outsideintddexample.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

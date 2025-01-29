@@ -1,4 +1,4 @@
-package com.example.myfirstunittest
+package com.example.outsideintddexample
 
 data class Engine (
     val cubicCentimeters: Int,

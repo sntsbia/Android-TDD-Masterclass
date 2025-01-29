@@ -1,4 +1,4 @@
-package com.example.myfirstunittest
+package com.example.outsideintddexample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
