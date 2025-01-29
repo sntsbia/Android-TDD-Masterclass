@@ -1,4 +1,4 @@
-package com.example.myfirstunittest
+package com.example.outsideintddexample
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
