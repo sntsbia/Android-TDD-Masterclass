@@ -1,8 +1,14 @@
 package com.example.outsideintddexample.model
 
-class Engine {
+class Engine(
+    var temperature: Int = 15, var isTurnedOn: Boolean = false
+) {
+
+
     fun turnOn() {
-        TODO("Not yet implemented")
+        isTurnedOn = true
+        temperature = 95
+
     }
 
 }

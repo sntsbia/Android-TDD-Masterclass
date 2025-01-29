@@ -1,7 +1,7 @@
 package com.example.outsideintddexample.model
 
 class Car(
-    private val engine: Engine, var fuel: Double
+    val engine: Engine, var fuel: Double
 ) {
 
     fun turnOn() {
