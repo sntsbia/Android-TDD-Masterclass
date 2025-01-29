@@ -121,6 +121,19 @@ Os dois tipos concordam que o desenvolvimento baseadon em testes é uma ferramen
 3. Os testes mais focados e isolados são normalmente produzidos fora da *entity*, então, na maioria dos casos, é bem óbvio o porquê do teste falhar e o que necessita ser corrigido
 4. Um bom design não acontece por acidente e reservar um tempo para pensar nele desde o início e refatorá-lo depois pode ajudar muito
 
+---
+# [Lifecycle: Outside-In TDD](../canvas/outside-in-tdd-lifecycle.canvas)
+
+O ciclo de vida sempre começa com uma falha no teste de aceitação, que simula um cenário de usuário final. Depois de escrever o primeiro teste de aceitação, inicia-se o ciclo de vida normal em um *loop* até o teste de aceitação virar "*green*".
+
+O objetivo é fazer o teste passar o mais rápido possível. Para isso, pode ser necessário rodar o ciclo interno de TDD várias vezes.
+
+O ciclo interno é rodado para cada componente (*view model*, *repository* e *services*)
+
+Quando há novas implementações, é necessário verificar se o *job* foi finalizado rodando o teste de aceitação até o fim do ciclo interno
+
+
+
 
 
 
