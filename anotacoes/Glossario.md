@@ -11,3 +11,7 @@
 
 > [!INFO] Um bloco de código que verifica se outro bloco de código funciona corretamente comparando-se seu retorno com o retorno esperado
 
+
+# Mocks
+
+> [!INFO] Objetos “falsos” que simulam o comportamento de uma classe ou objeto “real”
