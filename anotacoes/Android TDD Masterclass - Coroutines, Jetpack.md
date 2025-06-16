@@ -212,7 +212,22 @@ Mantém o rastreio das coroutines, mesmo quando são suspensas e pode cancelar t
 | Inicia uma nova coroutine que não retorna um resultado para quem a chama | Inicia uma nova coroutine e permite o retorno do resultado com a função suspensa `await` |
 
 
-Em quase todo caso, a maneira correta de iniciar uma coroutine de uma chamada de uma função regular é pelo `launch`
+Em quase todo caso, a maneira correta de iniciar uma coroutine de uma chamada de uma função regular é pelo `launch`.
+
+## Kotlin Flow
+
+Uma implementação de especificação de `Stream` reativo feito sob coroutines para Kotlin.
+
+É um `cold stream` de dado (como Live Data ou Observable).
+
+Emissor (BD Room ou um serviço Retrofit) -> expõe um stream de dados (Flow) -> que quando a função for chamada irá emitir a resposta
+Coletor (classe Repository) -> se inscreve para receber a informação que foi emitido dentro do stream -> processa os dados recebidos pelo emissor
+
+### Vantagens
+
+-> É uma API mais simples
+-> Usa concorrência estruturada: cancelar o scope, cancela a stream, evitando *memory leaks* 
+-> 
 
 
 
