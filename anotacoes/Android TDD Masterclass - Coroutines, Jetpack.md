@@ -47,7 +47,7 @@
 
 ---
 
-## Pré-Condições de testes 
+# Pré-Condições de testes 
 1. Teste deve ser rápido, para ser executado frequentemente
 2. Não deve depender de outro, mas sim, ser independente um do outro (Não afetar outros testes)
 3. Deve ser "repetível" e reproduzível em qualquer ambiente
@@ -130,7 +130,102 @@ O objetivo é fazer o teste passar o mais rápido possível. Para isso, pode ser
 
 O ciclo interno é rodado para cada componente (*view model*, *repository* e *services*)
 
-Quando há novas implementações, é necessário verificar se o *job* foi finalizado rodando o teste de aceitação até o fim do ciclo interno
+Quando há novas implementações, é necessário verificar se o *job* foi finalizado rodando o teste de aceitação até o fim do ciclo interno.
+
+---
+# Coroutines
+
+Simplifica o tratamento de código assíncrono aplicando lógicas de *callbacks* de forma a deixar parecido com código síncrono e sequencial, ou seja, a escrita do código será de forma sequencial, mas será executada automaticamente de uma forma *non-blocking*
+
+>[!INFO] SUSPEND
+>Pausa a execução da coroutine atual, salvando todas as variáveis locais.
+>Por exemplo: se a função for definida com `suspend fun nome_funcao`, não irá bloquear a thread principal na chamada http
+
+> [!INFO] RESUME
+> Continua a suspended coroutine de lugar que ela pausou
+
+Quando todas as coroutines na thread principal são *suspended*, ela está livre para fazer outra tarefa.
+
+Mesmo se escrita de forma sequencial (parecendo que são uma requisição blocking), as coroutines vão rodar e impedir que a thread principal seja bloqueada
+
+> [!WARNING] Por default, a coroutine roda na thread principal e `suspend` não significa `background`
+> Se usamos `calbacks`, ele não irá bloquear a thread principal até algo chamá-lo, mas uma vez chamado, irá rodar nessa thread a menos que seja explicitado que rode na thread em background
+> 
+
+Uma função `suspend` não irá bloquear a main thread a menos que o `resume` seja chamado (que rodará na main e não em background).
+
+É necessário definir o `Dispatcher` apropriado.
+
+## Dispatchers
+
+* Por default, uma `coroutine` usa o `Dispatches.main` e roda na thread principal.
+* Se for algum tipo de `input-output` (requisição network ou leitura/escrita em um banco de dados ou arquivo), deve-se usar `Dispatches.IO`. A coroutine rodará em uma thread separada em background 
+* Se forem cálculos que são intensivos para CPU, deve-se usar `Dispatcher.Default`
+
+ Obs: `Room`, `Retrofit` e `Volley` lidam com suas próprias threads e não requerem segurança da main explicitamente se usados com Coroutines
+
+> [!IMPORTANT] Main Thread
+> ``` {kotlin}
+> suspend fun function_name() {
+> 	val variable_name = get ("...")
+> 	
+> 	/** Main Thread */
+> 	do_something(variable_name)
+> }
+> ```
+
+> [!IMPORTANT] Background Thread
+> ``` {kotlin}
+> suspend fun function_name() {
+> 	val variable_name = get ("...")
+> 	
+> 	/** Se forem cálculos pesados, usar Dispatchers.Default */
+> 	 withContext(Dispatchers.IO) {
+> 		 /** Background Thread */
+> 		 do_something(variable_name)
+> 	 }
+> }
+> ```
+
+## Structured Concurrency
+É a combinação de linguagem, `features` e as melhores práticas, que, quando seguidas, ajuda a rastrear todas as tarefas rodando em coroutines.
+
+É util para:
+
+|      **Cancelar Tarefas**       |      **Manter o rastreio**      |     **Sinalizar Erros**     |
+| :-----------------------------: | :-----------------------------: | :-------------------------: |
+| Quando não são mais necessárias | Da tarefa enquanto está rodando | Quando uma coroutine falhar |
+
+### Coroutine Scope
+Kotlin não permite que rotinas técnicas iniciem sem usar um coroutine scope.
+
+Mantém o rastreio das coroutines, mesmo quando são suspensas e pode cancelar todas as coroutines que se iniciaram nele.
+
+* É onde a coroutine roda (Não necessariamente executa a coroutine), para garantir que não haja perda de rastreio.
+* É capaz de limpar todas as tarefas que foram iniciadas em uma tela que não são mais relevantes (no caso de troca de tela)
+
+> [!NOTE] Não é possível chamar uma função suspensa de qualquer lugar
+> As mecânicas de `suspend` e `resume` necessitam da troca de funções normais para *coroutine functions*
+
+|                                **launch**                                |                                        **async**                                         |
+| :----------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+| Inicia uma nova coroutine que não retorna um resultado para quem a chama | Inicia uma nova coroutine e permite o retorno do resultado com a função suspensa `await` |
+
+
+Em quase todo caso, a maneira correta de iniciar uma coroutine de uma chamada de uma função regular é pelo `launch`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
