@@ -11,10 +11,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.outsideintddexample.model.Car
+import com.example.outsideintddexample.model.Engine
 import com.example.outsideintddexample.ui.theme.MyFirstUnitTestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val engine = Engine()
+        val car = Car(engine, 20.0)
+
+        car.turnOn()
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
