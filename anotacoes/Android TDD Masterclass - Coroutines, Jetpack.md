@@ -220,15 +220,23 @@ Uma implementação de especificação de `Stream` reativo feito sob coroutines 
 
 É um `cold stream` de dado (como Live Data ou Observable).
 
-Emissor (BD Room ou um serviço Retrofit) -> expõe um stream de dados (Flow) -> que quando a função for chamada irá emitir a resposta
-Coletor (classe Repository) -> se inscreve para receber a informação que foi emitido dentro do stream -> processa os dados recebidos pelo emissor
+| **Emissor** (BD Room ou um serviço Retrofit) -> expõe um stream de dados (Flow) -> que quando a função for chamada irá emitir a resposta |
+| :--------------------------------------------------------------------------------------------------------------------------------------- |
+
+| **Coletor** (classe Repository) -> se inscreve para receber a informação que foi emitido dentro do stream -> processa os dados recebidos pelo emissor |
+|:-|
 
 ### Vantagens
 
--> É uma API mais simples
--> Usa concorrência estruturada: cancelar o scope, cancela a stream, evitando *memory leaks* 
--> 
+-> É uma API mais simples.
 
+-> Usa concorrência estruturada: cancelar o scope, cancela a stream, evitando *memory leaks*.
+
+-> Se um emissor emite informação mais rápido que o coletor consegue processar, então o *stream* está colocando emissões extras em uma *queue* a ser processada quando o coletor estiver apto a isso. Essa adição pode oferecer o backpressure, mas precisa usar o *flowable stream* e não um *observable*.
+
+-> Como Flow é baseado em coroutines, sua execução é suspensa e não bloqueia a thread. Isso permite escrever operações customizadas usando *delay* ao invés de *thread.sleep*
+
+-> Oferece o suporte de *nullability*: valores nulos podem ser passados sem a necessidade de adaptá-los
 
 
 
