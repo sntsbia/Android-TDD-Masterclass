@@ -32,14 +32,28 @@ class CarFeature {
     }
 
     @Test
-    fun carIsTurningOnItsEngineAndIncreasesTheTemperature() = runTest {
+    fun carIsTurningOnItsEngineAndIncreasesTheTemperatureGradually() = runTest {
 
         car.turnOn()
 
-        testScheduler.advanceTimeBy(6001)
+        this@CarFeature.advanceTimeBy()
+        assertEquals(25, car.engine.temperature)
 
+        this@CarFeature.advanceTimeBy()
+        assertEquals(50, car.engine.temperature)
+
+        this@CarFeature.advanceTimeBy()
         assertEquals(95, car.engine.temperature)
+
         assertTrue(car.engine.isTurnedOn)
+
+    }
+
+    private fun advanceTimeBy(timeMillis: Long = 2000) {
+        testCoroutineScopeRule.testScheduler.apply {
+            advanceTimeBy(timeMillis);
+            runCurrent()
+        }
 
     }
 
