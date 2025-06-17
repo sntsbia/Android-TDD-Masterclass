@@ -238,6 +238,31 @@ Uma implementação de especificação de `Stream` reativo feito sob coroutines 
 
 -> Oferece o suporte de *nullability*: valores nulos podem ser passados sem a necessidade de adaptá-los
 
+---
+
+# Trabalho Ágil
+
+## Clear Focus
+Trabalhar de forma iterativa com a intenção de entregar uma *feature* simples por vez, ou seja, qualquer outra coisa não será importante até que essa *feature* seja entregue.
+
+## Sem Overengineering
+**YAGNI**: *You ain't gonna need it*.
+Tentar evitar adivinhar o que será útil no futuro.
+Ao invés de focar em **como** o futuro será entregue, o foco será no que **poderá ser possível** no futuro. Se no futuro, realmente algo for necessário, então o sistema será refatorado
+
+## Sem Underengineering
+Antes de implementar uma nova *feature* no sistema, deve-se investigar se o sistema está pronto para aceitá-la e funcionar harmonicamente. Se não, é necessário tirar um tempo para refatorar o sistema para um estado que a introdução da nova *feature* não quebrará os princípios fundamentais do desenvolvimento S.O.L.I.D.
+
+| Princípio                 | Descrição                                                                                                                                           |
+| :------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **S**ingle Responsibility | Uma classe deve ter apenas uma responsabilidade.                                                                                                    |
+| **O**pen Closed           | O código deve ser aberto para extensão, fechado para modificação. Em vez de modificar uma função, crie uma nova classe que a estenda ou implemente. |
+| **L**iskov Substitution   | Subclasses devem poder ser usadas no lugar das superclasses sem efeitos colaterais.                                                                 |
+| **I**nterface Segregation | Crie interfaces pequenas e específicas.                                                                                                             |
+| **D**ependency Inversion  | Módulos de alto nível não devem depender dos de baixo nível. Ambos devem depender de abstrações (interfaces).                                       |
+
+---
+
 
 
 
