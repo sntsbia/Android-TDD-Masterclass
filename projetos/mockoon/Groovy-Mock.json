@@ -1,0 +1,102 @@
+{
+  "uuid": "94787e5f-222e-49c5-903d-07588aec4bf6",
+  "lastMigration": 33,
+  "name": "Groovy Mock",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "61b032ac-6458-45eb-b331-db39fbc14467",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists",
+      "responses": [
+        {
+          "uuid": "1a423670-b912-4a5e-9f86-47a1972cc8c5",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"name\": \"Hard Rock Cafe\",\n    \"category\": \"rock\"\n  },\n    {\n    \"id\": \"2\",\n    \"name\": \"Chilled House\",\n    \"category\": \"house\"\n  },\n    {\n    \"id\": \"3\",\n    \"name\": \"US TOP 40 HITS\",\n    \"category\": \"mixed\"\n  },\n    {\n    \"id\": \"4\",\n    \"name\": \"90's Rock\",\n    \"category\": \"rock\"\n  },\n    {\n    \"id\": \"5\",\n    \"name\": \"Purple Jazz\",\n    \"category\": \"jazz\"\n  },\n  {\n    \"id\": \"6\",\n    \"name\": \"90's flashback\",\n    \"category\": \"pop\"\n  },\n  {\n    \"id\": \"7\",\n    \"name\": \"Machine Funk\",\n    \"category\": \"electro\"\n  },\n  {\n    \"id\": \"8\",\n    \"name\": \"Let's Groove\",\n    \"category\": \"mixed\"\n  },\n  {\n    \"id\": \"9\",\n    \"name\": \"Feel The Beat\",\n    \"category\": \"electro\"\n  },\n  {\n    \"id\": \"10\",\n    \"name\": \"Best Songs 2020\",\n    \"category\": \"mixed\"\n  }\n ]",
+          "latency": 400,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "61b032ac-6458-45eb-b331-db39fbc14467"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "b7958909-359e-4523-b8df-2471f5c80aed",
+      "id": "uh1m",
+      "name": "playlists",
+      "documentation": "",
+      "value": "[\n  {\n    \"id\": \"1\",\n    \"name\": \"Hard Rock Cafe\",\n    \"category\": \"rock\"\n  },\n    {\n    \"id\": \"2\",\n    \"name\": \"Chilled House\",\n    \"category\": \"house\"\n  },\n    {\n    \"id\": \"3\",\n    \"name\": \"US TOP 40 HITS\",\n    \"category\": \"mixed\"\n  },\n    {\n    \"id\": \"4\",\n    \"name\": \"90's Rock\",\n    \"category\": \"rock\"\n  },\n    {\n    \"id\": \"5\",\n    \"name\": \"Purple Jazz\",\n    \"category\": \"jazz\"\n  },\n  {\n    \"id\": \"6\",\n    \"name\": \"90's flashback\",\n    \"category\": \"pop\"\n  },\n  {\n    \"id\": \"7\",\n    \"name\": \"Machine Funk\",\n    \"category\": \"electro\"\n  },\n  {\n    \"id\": \"8\",\n    \"name\": \"Let's Groove\",\n    \"category\": \"mixed\"\n  },\n  {\n    \"id\": \"9\",\n    \"name\": \"Feel The Beat\",\n    \"category\": \"electro\"\n  },\n  {\n    \"id\": \"10\",\n    \"name\": \"Best Songs 2020\",\n    \"category\": \"mixed\"\n  }\n ]"
+    }
+  ],
+  "callbacks": []
+}
