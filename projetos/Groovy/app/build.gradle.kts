@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -36,6 +36,9 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        viewBinding = true
+        mlModelBinding = true
+        buildConfig = true
     }
 }
 
@@ -53,11 +56,15 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.retrofit)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
     implementation(libs.converter.gson)
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.recyclerview)
     testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockito.core) // Or a more recent version
     testImplementation(libs.mockito.inline)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
