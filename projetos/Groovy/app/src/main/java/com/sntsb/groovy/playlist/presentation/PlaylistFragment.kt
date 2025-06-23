@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
+import com.sntsb.groovy.data.services.PlaylistServiceImpl
 import com.sntsb.groovy.databinding.FragmentPlaylistBinding
 import com.sntsb.groovy.playlist.presentation.adapter.PlaylistRecyclerViewAdapter
 
 class PlaylistFragment : Fragment() {
 
-    private val repository = PlaylistRepositoryImpl()
+    private val service = PlaylistServiceImpl()
+    private val repository = PlaylistRepositoryImpl(service)
 
     private val viewModelFactory = PlaylistViewModelFactory(repository)
 

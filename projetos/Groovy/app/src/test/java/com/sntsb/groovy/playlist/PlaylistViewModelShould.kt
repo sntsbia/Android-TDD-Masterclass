@@ -15,7 +15,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Test
 
-class PlaylistViewModelShould : BaseUnitTest(){
+class PlaylistViewModelShould : BaseUnitTest() {
 
     private val repository: PlaylistRepositoryImpl = mock()
 
@@ -57,7 +57,7 @@ class PlaylistViewModelShould : BaseUnitTest(){
     }
 
     @Test
-    fun emitsErrorWhenRepositoryFails() = runTest {
+    fun emitErrorWhenRepositoryFails() = runTest {
 
         val viewModel = callFailureCaseViewModel()
 
@@ -65,7 +65,7 @@ class PlaylistViewModelShould : BaseUnitTest(){
     }
 
     @Test
-    fun emitsPlaylistsFromRepository() = runTest {
+    fun emitPlaylistsFromRepository() = runTest {
         val viewModel = callSuccessfulCaseViewModel()
 
         Assert.assertEquals(expected, viewModel.playlists.getValueForTest())
