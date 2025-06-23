@@ -1,4 +1,4 @@
-package com.sntsb.groovy.presentation.placeholder
+package com.sntsb.groovy.playlist.presentation.adapter.placeholder
 
 import com.sntsb.groovy.data.model.Playlist
 import java.util.ArrayList

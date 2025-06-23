@@ -1,4 +1,4 @@
-package com.sntsb.groovy.presentation
+package com.sntsb.groovy.playlist.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.databinding.FragmentPlaylistBinding
+import com.sntsb.groovy.playlist.presentation.adapter.PlaylistRecyclerViewAdapter
 
 class PlaylistFragment : Fragment() {
 

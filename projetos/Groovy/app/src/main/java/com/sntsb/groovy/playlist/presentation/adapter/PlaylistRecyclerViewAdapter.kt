@@ -1,4 +1,4 @@
-package com.sntsb.groovy.presentation
+package com.sntsb.groovy.playlist.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater

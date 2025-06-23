@@ -3,7 +3,7 @@ package com.sntsb.groovy
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sntsb.groovy.databinding.ActivityMainBinding
-import com.sntsb.groovy.presentation.PlaylistFragment
+import com.sntsb.groovy.playlist.presentation.PlaylistFragment
 
 class MainActivity : AppCompatActivity() {
 

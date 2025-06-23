@@ -1,4 +1,4 @@
-package com.sntsb.groovy.presentation
+package com.sntsb.groovy.playlist.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
