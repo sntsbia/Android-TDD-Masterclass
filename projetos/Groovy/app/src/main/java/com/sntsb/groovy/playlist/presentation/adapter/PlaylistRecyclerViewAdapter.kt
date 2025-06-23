@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.sntsb.groovy.R
 import com.sntsb.groovy.data.model.Playlist
 
 import com.sntsb.groovy.databinding.PlaylistItemBinding
@@ -46,7 +47,7 @@ class PlaylistRecyclerViewAdapter(
 
             nameView.text = item.name
             categoryView.text = item.category
-            imageView.setImageResource(item.image)
+            imageView.setImageResource(R.mipmap.playlist)
 
             itemView.setOnClickListener {
                 // Handle item click, e.g., navigate to details or play the playlist
