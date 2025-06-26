@@ -7,8 +7,6 @@
 3. Define como o desenvolvimento será direcionado;
 4. É uma metodologia/processo de desenvolvimento
 
----
-
 ## Vantagens
 
 1. Melhor entendimento dos requisitos do produto;
@@ -22,8 +20,6 @@
 > Garantimos que a aplicação está cumprindo as condições para serem testados mais facilmente, além de ser mais fácil de ler e manter
 
 > É um processo e independe da plataforma ou tecnologia: como o código é escrito e não tem relação com qual código está sendo escrito em qual domínio
-
----
 
 ## [Ciclo de Vida do TDD](../canvas/Ciclo-de-Vida.canvas)
 
@@ -46,7 +42,6 @@
 > 3. Você não deve escrever mais *production code* que o suficiente para passar o teste de falha corrente
 
 ---
-
 # Pré-Condições de testes 
 1. Teste deve ser rápido, para ser executado frequentemente
 2. Não deve depender de outro, mas sim, ser independente um do outro (Não afetar outros testes)
@@ -55,14 +50,12 @@
 5. Deve ser escrito no tempo apropriado, ou seja, antes do *production code* que será validado
 
 ---
-
 # Tipos de testes automatizados
 
 > [!IMPORTANT] Unit (Unitário)
 > Testa um pequeno bloco de código, geralmente em um método;
 > Manda certo *input* ao método e espera certo *output*;
 > Se o código de teste precisa de mais de 5 ou 6 linhas, é uma dica para refatorar o código. Nesse caso, é provável que está testando muitas coisas ou o código foi desenvolvido sem utilização das melhores práticas de engenharia de software 
-
 
 > [!IMPORTANT] Integration (Integração) (ou *Instrumentation Tests* para Android)
 > Módulos do software são combinados e testados como um grupo;
@@ -76,9 +69,6 @@
 > Precisa de um dispositivo real ou um emulador para ser rodado;
 > Simula interações do usuários, como clicks em botões ou navegação em menus e verifica se os componentes de interface (*UI*) que estão sendo renderizados são os corretos;
 
-
----
-
 ## [Google Testing Pyramid](../canvas/Google-Testing-Pyramid.canvas)
 
 -  **Unit**: Fácil de escrever, roda rápido e indica o erro exato 
@@ -86,7 +76,6 @@
 	- É bom para testes de regressão
 
 ---
-
 ## Types of TDD
 
 Os dois tipos concordam que o desenvolvimento baseadon em testes é uma ferramenta efetiva, mas o aplicam de formas diferentes
@@ -211,7 +200,6 @@ Mantém o rastreio das coroutines, mesmo quando são suspensas e pode cancelar t
 | :----------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
 | Inicia uma nova coroutine que não retorna um resultado para quem a chama | Inicia uma nova coroutine e permite o retorno do resultado com a função suspensa `await` |
 
-
 Em quase todo caso, a maneira correta de iniciar uma coroutine de uma chamada de uma função regular é pelo `launch`.
 
 ## Kotlin Flow
@@ -239,7 +227,6 @@ Uma implementação de especificação de `Stream` reativo feito sob coroutines 
 -> Oferece o suporte de *nullability*: valores nulos podem ser passados sem a necessidade de adaptá-los
 
 ---
-
 # Trabalho Ágil
 
 ## Clear Focus
@@ -253,6 +240,8 @@ Ao invés de focar em **como** o futuro será entregue, o foco será no que **po
 ## Sem Underengineering
 Antes de implementar uma nova *feature* no sistema, deve-se investigar se o sistema está pronto para aceitá-la e funcionar harmonicamente. Se não, é necessário tirar um tempo para refatorar o sistema para um estado que a introdução da nova *feature* não quebrará os princípios fundamentais do desenvolvimento S.O.L.I.D.
 
+### S.O.L.I.D
+
 | Princípio                 | Descrição                                                                                                                                           |
 | :------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **S**ingle Responsibility | Uma classe deve ter apenas uma responsabilidade.                                                                                                    |
@@ -262,6 +251,21 @@ Antes de implementar uma nova *feature* no sistema, deve-se investigar se o sist
 | **D**ependency Inversion  | Módulos de alto nível não devem depender dos de baixo nível. Ambos devem depender de abstrações (interfaces).                                       |
 
 ---
+# Injeção de Dependências
+Uma técnica onde todas as dependências são injetadas nas classes dependentes delas, que é um princípio geral de design de software para **reduzir o acoplamento** e **aumentar a flexibilidade** dos sistemas (descrito nos princípios [S.O.L.I.D](#S.O.L.I.D))
+Um cliente que quer chamar alguns serviços não deveria saber como construir esses serviços. Ao invés disso, alguma outra coisa (que o cliente não conhece) constrói os serviços e os injeta no cliente.
+O *injector* sabe como instanciar as dependências e como injetá-las.
+
+## Vantagens
+* **Manutenibilidade (Facilidade de Manutenção)**: os sistemas têm baixo acoplamento e seguem o princípio de Responsabilidade Única
+* **Testabilidade (Facilidade de Teste)**: permite "*mockar*" as classes injetadas, facilitando os testes (com Mockito por exemplo)
+* **Legibilidade (Facilidade de Leitura)**: Remove pedaços de código que, eventualmente, deixa a leitura da classe muito mais fácil
+* **Extensibilidade (Facilidade de inserir novas funcionalidades)**: Por usar abstrações ao invés de implementações, o código pode ter muitas variações para diferentes regras de negócio
+
+## Hilt
+Biblioteca criada pelo Google para injeção de dependências, que reduz repetição de código causada pela injeção manual da dependência nos projetos.
+É construído em cima da biblioteca Dagger, para se beneficiar da performance em tempo de execução, garantindo que certos erros sejam detectados pelo compilador, da escalabilidade e suporte do Android Studio que o Dagger oferece.
+Sua implementação é mais fácil
 
 
 
