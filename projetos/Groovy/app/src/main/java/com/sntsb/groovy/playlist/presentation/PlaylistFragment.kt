@@ -1,6 +1,7 @@
 package com.sntsb.groovy.playlist.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,23 +46,36 @@ class PlaylistFragment : Fragment() {
         viewModel.playlists.observe(viewLifecycleOwner) {
             if (it.isSuccess) {
                 it.getOrNull()?.let { playlists ->
-                    setupList(binding.list, playlists)
+                    setupList(playlists)
                 } ?: run {
                     // Handle empty list case
-                    setupList(binding.list, emptyList())
+                    setupList(emptyList())
                 }
             } else {
                 // Handle error case
-                setupList(binding.list, emptyList())
+                setupList(emptyList())
             }
         }
     }
 
-    private fun setupList(view: View?, playlists: List<Playlist>) {
-        with(view as RecyclerView) {
+    private fun setupList( playlists: List<Playlist>) {
+
+        Log.e("PlaylistFragment", "setupList: ${playlists.size}", )
+        with(binding.list) {
             layoutManager = LinearLayoutManager(context)
             adapter = PlaylistRecyclerViewAdapter(playlists)
+            visibility = if (playlists.isNotEmpty()) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
 
+        }
+
+        binding.tvEmptyList.visibility = if (playlists.isEmpty()) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 

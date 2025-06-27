@@ -1,5 +1,6 @@
 package com.sntsb.groovy.playlist.presentation.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -40,6 +41,8 @@ class PlaylistRecyclerViewAdapter(
 //        }
 
         fun bind(item: Playlist) {
+
+            Log.e("####", "bind: $item", )
 
             nameView.text = item.name
             categoryView.text = item.category.name
