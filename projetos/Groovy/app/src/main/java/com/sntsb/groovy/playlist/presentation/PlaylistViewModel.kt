@@ -5,8 +5,9 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.repository.PlaylistRepository
+import javax.inject.Inject
 
-class PlaylistViewModel(
+class PlaylistViewModel @Inject constructor(
     playlistRepository: PlaylistRepository
 ) : ViewModel() {
 

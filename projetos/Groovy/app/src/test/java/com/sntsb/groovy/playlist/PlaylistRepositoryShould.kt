@@ -19,7 +19,6 @@ import org.mockito.Mockito.mock
 class PlaylistRepositoryShould : BaseUnitTest() {
 
     private val service: PlaylistServiceImpl = mock()
-
     private val playlists = mock<List<Playlist>>()
     private val expected = Result.success<List<Playlist>>(playlists)
     private val exception = Result.failure<List<Playlist>>(Exception("Something went wrong"))

@@ -8,31 +8,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sntsb.groovy.data.api.PlaylistAPI
 import com.sntsb.groovy.data.model.Playlist
-import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
-import com.sntsb.groovy.data.services.PlaylistServiceImpl
 import com.sntsb.groovy.databinding.FragmentPlaylistBinding
 import com.sntsb.groovy.playlist.presentation.adapter.PlaylistRecyclerViewAdapter
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.jvm.java
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PlaylistFragment : Fragment() {
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.199:3001/")
-        .client(OkHttpClient())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val api = retrofit.create(PlaylistAPI::class.java)
-
-    private val service = PlaylistServiceImpl(api)
-    private val repository = PlaylistRepositoryImpl(service)
-
-    private val viewModelFactory = PlaylistViewModelFactory(repository)
+    @Inject
+    lateinit var viewModelFactory: PlaylistViewModelFactory
 
     private val viewModel by viewModels<PlaylistViewModel> {
         viewModelFactory
