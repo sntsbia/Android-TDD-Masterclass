@@ -8,6 +8,7 @@ import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.playlist.presentation.PlaylistViewModel
 import com.sntsb.groovy.utils.BaseUnitTest
+import com.sntsb.groovy.utils.captureValues
 import com.sntsb.groovy.utils.getValueForTest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
@@ -20,7 +21,7 @@ class PlaylistViewModelShould : BaseUnitTest() {
     private val repository: PlaylistRepositoryImpl = mock()
 
     private val playlists = mock<List<Playlist>>()
-    private val expected = Result.success<List<Playlist>>(playlists)
+    private val expected = Result.success(playlists)
     private val exception = Result.failure<List<Playlist>>(Exception("Something went wrong"))
 
     private fun callSuccessfulCaseViewModel(): PlaylistViewModel {
@@ -69,5 +70,44 @@ class PlaylistViewModelShould : BaseUnitTest() {
         val viewModel = callSuccessfulCaseViewModel()
 
         Assert.assertEquals(expected, viewModel.playlists.getValueForTest())
+    }
+
+    enum class SearchEnum {
+        FIRST, LAST
+    }
+
+    private fun validateIsLoadingState(
+        viewModel: PlaylistViewModel, expected: Boolean, search: SearchEnum
+    ) = runTest {
+        viewModel.isLoading.captureValues {
+            viewModel.playlists.getValueForTest()
+            when (search) {
+                SearchEnum.FIRST -> Assert.assertEquals(expected, values[0])
+                SearchEnum.LAST -> Assert.assertEquals(expected, values.last())
+            }
+        }
+    }
+
+    @Test
+    fun showLoadingStateWhenFetchingPlaylists() = runTest {
+        val viewModel = callSuccessfulCaseViewModel()
+
+        validateIsLoadingState(viewModel, true, SearchEnum.FIRST)
+
+    }
+
+    @Test
+    fun hideLoadingStateAfterFetchingPlaylists() = runTest {
+        val viewModel = callSuccessfulCaseViewModel()
+
+        validateIsLoadingState(viewModel, false, SearchEnum.LAST)
+
+    }
+
+    @Test
+    fun hideLoadingStateWhenFetchingPlaylistsFails() = runTest {
+        val viewModel = callFailureCaseViewModel()
+
+        validateIsLoadingState(viewModel, false, SearchEnum.LAST)
     }
 }

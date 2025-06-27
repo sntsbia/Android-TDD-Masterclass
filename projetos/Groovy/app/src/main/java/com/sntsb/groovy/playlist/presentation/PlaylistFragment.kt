@@ -38,22 +38,26 @@ class PlaylistFragment : Fragment() {
     }
 
     private fun initObservers() {
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
         viewModel.playlists.observe(viewLifecycleOwner) {
             if (it.isSuccess) {
                 it.getOrNull()?.let { playlists ->
-                    setupList(playlists)
+                    setupList(binding.list, playlists)
                 } ?: run {
                     // Handle empty list case
-                    setupList(emptyList())
+                    setupList(binding.list, emptyList())
                 }
             } else {
                 // Handle error case
-                setupList(emptyList())
+                setupList(binding.list, emptyList())
             }
         }
     }
 
-    private fun setupList(playlists: List<Playlist>) {
+    private fun setupList(view: View?, playlists: List<Playlist>) {
         with(view as RecyclerView) {
             layoutManager = LinearLayoutManager(context)
             adapter = PlaylistRecyclerViewAdapter(playlists)

@@ -12,6 +12,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.adevinta.android.barista.assertion.BaristaRecyclerViewAssertions.assertRecyclerViewItemCount
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertDisplayed
+import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertNotDisplayed
 import com.adevinta.android.barista.internal.matcher.DrawableMatcher.Companion.withDrawable
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -52,17 +53,18 @@ class PlaylistFeature {
         onView(withinFirstPlaylistItem(withId(R.id.iv_image))).check(matches(withDrawable(R.mipmap.playlist)))
             .check(matches(isDisplayed()))
 
-//        onView(withinFirstPlaylistItem(withId(R.id.tv_name)))
-//            .check(matches(allOf(withText("Hard Rock Cafe"), isDisplayed())))
-//
-//        onView(withinFirstPlaylistItem(withId(R.id.tv_category)))
-//            .check(matches(allOf(withText("rock"), isDisplayed())))
-//
-//        onView(withinFirstPlaylistItem(withId(R.id.iv_image)))
-//            .check(matches(allOf(withDrawable(R.mipmap.playlist), isDisplayed())))
-
     }
 
+    @Test
+    fun displaysLoadingIndicatorWhileFetchingThePlaylists() {
+        assertDisplayed(R.id.progress_bar)
+    }
+
+    @Test
+    fun hidesLoadingIndicatorAfterFetchingThePlaylists() {
+        Thread.sleep(4000)
+        assertNotDisplayed(R.id.progress_bar)
+    }
 
     fun nthChildOf(parentMatcher: Matcher<View>, childPosition: Int): Matcher<View> {
         return object : TypeSafeMatcher<View>() {
