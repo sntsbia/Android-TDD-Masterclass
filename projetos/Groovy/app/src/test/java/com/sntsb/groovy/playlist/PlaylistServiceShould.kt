@@ -3,8 +3,8 @@ package com.sntsb.groovy.playlist
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.sntsb.groovy.data.api.PlaylistAPI
-import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.services.PlaylistServiceImpl
+import com.sntsb.groovy.domain.model.PlaylistRaw
 import com.sntsb.groovy.utils.BaseUnitTest
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.first
@@ -17,7 +17,7 @@ class PlaylistServiceShould : BaseUnitTest() {
 
     private val api: PlaylistAPI = mock()
 
-    private val playlists = mock<List<Playlist>>()
+    private val playlists = mock<List<PlaylistRaw>>()
     private val expected = Result.success(playlists)
     private val error = RuntimeException("Damn you, network!")
 
@@ -62,8 +62,7 @@ class PlaylistServiceShould : BaseUnitTest() {
         val service = setupFailureCaseAPI()
 
         assertEquals(
-            "Something went wrong",
-            service.fetchPlaylists().first().exceptionOrNull()?.message
+            "Something went wrong", service.fetchPlaylists().first().exceptionOrNull()?.message
         )
     }
 

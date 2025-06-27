@@ -4,8 +4,8 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
+import com.sntsb.groovy.domain.model.Playlist
 import com.sntsb.groovy.playlist.presentation.PlaylistViewModel
 import com.sntsb.groovy.utils.BaseUnitTest
 import com.sntsb.groovy.utils.captureValues

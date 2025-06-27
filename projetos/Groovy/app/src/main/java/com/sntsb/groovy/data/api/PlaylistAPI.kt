@@ -1,10 +1,10 @@
 package com.sntsb.groovy.data.api
 
-import com.sntsb.groovy.data.model.Playlist
+import com.sntsb.groovy.domain.model.PlaylistRaw
 import retrofit2.http.GET
 
 interface PlaylistAPI {
 
     @GET("playlists")
-    suspend fun fetchAllPlaylists(): List<Playlist>
+    suspend fun fetchAllPlaylists(): List<PlaylistRaw>
 }

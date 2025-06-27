@@ -1,14 +1,12 @@
 package com.sntsb.groovy.playlist.presentation.adapter
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.sntsb.groovy.R
-import com.sntsb.groovy.data.model.Playlist
-
+import androidx.recyclerview.widget.RecyclerView
 import com.sntsb.groovy.databinding.PlaylistItemBinding
+import com.sntsb.groovy.domain.model.Playlist
 
 class PlaylistRecyclerViewAdapter(
     private val values: List<Playlist>
@@ -18,9 +16,7 @@ class PlaylistRecyclerViewAdapter(
 
         return ViewHolder(
             PlaylistItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
 
@@ -47,7 +43,7 @@ class PlaylistRecyclerViewAdapter(
 
             nameView.text = item.name
             categoryView.text = item.category
-            imageView.setImageResource(R.mipmap.playlist)
+            imageView.setImageResource(item.image)
 
             itemView.setOnClickListener {
                 // Handle item click, e.g., navigate to details or play the playlist

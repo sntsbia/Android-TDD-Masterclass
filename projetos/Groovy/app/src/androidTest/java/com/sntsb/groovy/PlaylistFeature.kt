@@ -28,9 +28,12 @@ class PlaylistFeature {
     val mActivityRule = ActivityScenarioRule(MainActivity::class.java)
         @Rule get
 
-    private fun withinFirstPlaylistItem(targetViewMatcher: Matcher<View>): Matcher<View> {
+    private fun withinNstPlaylistItem(
+        targetViewMatcher: Matcher<View>,
+        position: Int
+    ): Matcher<View> {
         return allOf(
-            targetViewMatcher, isDescendantOfA(nthChildOf(withId(R.id.list), 0))
+            targetViewMatcher, isDescendantOfA(nthChildOf(withId(R.id.list), position))
         )
     }
 
@@ -44,14 +47,22 @@ class PlaylistFeature {
         Thread.sleep(4000)
         assertRecyclerViewItemCount(R.id.list, 10)
 
-        onView(withinFirstPlaylistItem(withId(R.id.tv_name))).check(matches(withText("Hard Rock Cafe")))
+        onView(
+            withinNstPlaylistItem(
+                withId(R.id.tv_name),
+                0
+            )
+        ).check(matches(withText("Hard Rock Cafe"))).check(matches(isDisplayed()))
+
+        onView(withinNstPlaylistItem(withId(R.id.tv_category), 0)).check(matches(withText("rock")))
             .check(matches(isDisplayed()))
 
-        onView(withinFirstPlaylistItem(withId(R.id.tv_category))).check(matches(withText("rock")))
-            .check(matches(isDisplayed()))
-
-        onView(withinFirstPlaylistItem(withId(R.id.iv_image))).check(matches(withDrawable(R.mipmap.playlist)))
-            .check(matches(isDisplayed()))
+        onView(
+            withinNstPlaylistItem(
+                withId(R.id.iv_image),
+                0
+            )
+        ).check(matches(withDrawable(R.mipmap.playlist))).check(matches(isDisplayed()))
 
     }
 
@@ -66,7 +77,24 @@ class PlaylistFeature {
         assertNotDisplayed(R.id.progress_bar)
     }
 
-    fun nthChildOf(parentMatcher: Matcher<View>, childPosition: Int): Matcher<View> {
+    @Test
+    fun displaysRockImageForRockListItems() {
+        onView(
+            withinNstPlaylistItem(
+                withId(R.id.iv_image),
+                0
+            )
+        ).check(matches(withDrawable(R.mipmap.rock))).check(matches(isDisplayed()))
+
+        onView(
+            withinNstPlaylistItem(
+                withId(R.id.iv_image),
+                3
+            )
+        ).check(matches(withDrawable(R.mipmap.rock))).check(matches(isDisplayed()))
+    }
+
+    private fun nthChildOf(parentMatcher: Matcher<View>, childPosition: Int): Matcher<View> {
         return object : TypeSafeMatcher<View>() {
             override fun describeTo(description: Description) {
                 description.appendText("position $childPosition of parent ")

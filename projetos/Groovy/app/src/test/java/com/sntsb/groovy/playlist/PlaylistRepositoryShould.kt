@@ -3,10 +3,12 @@ package com.sntsb.groovy.playlist
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.sntsb.groovy.data.model.Playlist
+import com.sntsb.groovy.data.mapper.PlayListMapper
 import com.sntsb.groovy.data.repository.PlaylistRepository
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.data.services.PlaylistServiceImpl
+import com.sntsb.groovy.domain.model.Playlist
+import com.sntsb.groovy.domain.model.PlaylistRaw
 import com.sntsb.groovy.utils.BaseUnitTest
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.first
@@ -19,9 +21,11 @@ import org.mockito.Mockito.mock
 class PlaylistRepositoryShould : BaseUnitTest() {
 
     private val service: PlaylistServiceImpl = mock()
+    private val mapper: PlayListMapper = mock()
     private val playlists = mock<List<Playlist>>()
-    private val expected = Result.success<List<Playlist>>(playlists)
-    private val exception = Result.failure<List<Playlist>>(Exception("Something went wrong"))
+    private val playlistsRaw = mock<List<PlaylistRaw>>()
+    private val expected = Result.success<List<PlaylistRaw>>(playlistsRaw)
+    private val exception = Result.failure<List<PlaylistRaw>>(Exception("Something went wrong"))
 
     private fun callSuccessfulCaseRepository(): PlaylistRepository {
         runBlocking {
@@ -30,8 +34,9 @@ class PlaylistRepositoryShould : BaseUnitTest() {
                     emit(expected)
                 })
         }
+        whenever(mapper.invoke(playlistsRaw)).thenReturn(playlists)
 
-        return PlaylistRepositoryImpl(service)
+        return PlaylistRepositoryImpl(service, mapper)
     }
 
     private fun callFailureCaseRepository(): PlaylistRepository {
@@ -42,26 +47,36 @@ class PlaylistRepositoryShould : BaseUnitTest() {
                 })
         }
 
-        return PlaylistRepositoryImpl(service)
+        return PlaylistRepositoryImpl(service, mapper)
+    }
+
+    @Test
+    fun delegateBusinessLogicToMapper() = runTest {
+
+        val repository = callSuccessfulCaseRepository()
+
+        repository.getPlaylists().first()
+
+        verify(mapper, times(1)).invoke(playlistsRaw)
     }
 
     @Test
     fun getsPlaylistsFromService() = runTest {
 
-        val repository = PlaylistRepositoryImpl(service)
+        val repository = callSuccessfulCaseRepository()
 
-        repository.getPlaylists()
+        repository.getPlaylists().first()
 
         verify(service, times(1)).fetchPlaylists()
 
     }
 
     @Test
-    fun emitPlaylistsFromService() = runTest {
+    fun emitMappedPlaylistsFromService() = runTest {
 
         val repository = callSuccessfulCaseRepository()
 
-        assertEquals(expected, repository.getPlaylists().first())
+        assertEquals(playlists, repository.getPlaylists().first().getOrNull())
 
     }
 

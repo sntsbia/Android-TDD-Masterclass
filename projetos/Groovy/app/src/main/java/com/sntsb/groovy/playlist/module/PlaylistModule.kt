@@ -1,6 +1,7 @@
 package com.sntsb.groovy.playlist.module
 
 import com.sntsb.groovy.data.api.PlaylistAPI
+import com.sntsb.groovy.data.mapper.PlayListMapper
 import com.sntsb.groovy.data.repository.PlaylistRepository
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.data.services.PlaylistService
@@ -25,8 +26,10 @@ class PlaylistModule {
     fun playlistAPI(retrofit: Retrofit) = retrofit.create(PlaylistAPI::class.java)
 
     @Provides
-    fun playlistRepository(playlistService: PlaylistService): PlaylistRepository =
-        PlaylistRepositoryImpl(playlistService)
+    fun playlistRepository(
+        playlistService: PlaylistService,
+        mapper: PlayListMapper
+    ): PlaylistRepository = PlaylistRepositoryImpl(playlistService, mapper)
 
     @Provides
     fun playlistService(playlistAPI: PlaylistAPI): PlaylistService =

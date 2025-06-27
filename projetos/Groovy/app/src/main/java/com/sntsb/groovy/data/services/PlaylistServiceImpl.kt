@@ -1,7 +1,7 @@
 package com.sntsb.groovy.data.services
 
 import com.sntsb.groovy.data.api.PlaylistAPI
-import com.sntsb.groovy.data.model.Playlist
+import com.sntsb.groovy.domain.model.PlaylistRaw
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -11,7 +11,7 @@ class PlaylistServiceImpl @Inject constructor(
     private val api: PlaylistAPI
 ) : PlaylistService {
 
-    override suspend fun fetchPlaylists(): Flow<Result<List<Playlist>>> {
+    override suspend fun fetchPlaylists(): Flow<Result<List<PlaylistRaw>>> {
 
         return flow {
             emit(Result.success(api.fetchAllPlaylists()))

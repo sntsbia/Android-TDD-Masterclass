@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sntsb.groovy.data.model.Playlist
 import com.sntsb.groovy.databinding.FragmentPlaylistBinding
+import com.sntsb.groovy.domain.model.Playlist
 import com.sntsb.groovy.playlist.presentation.adapter.PlaylistRecyclerViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
