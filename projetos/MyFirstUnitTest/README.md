@@ -4,48 +4,16 @@ Este projeto foi desenvolvido com o objetivo de praticar **TDD (Test Driven Deve
 
 ---
 
-## ✳️ Principais Conceitos Aplicados
+## 🧱 Tecnologias Utilizadas
 
-### 🧪 Test Driven Development (TDD)
-
-> Técnica de desenvolvimento onde os testes são escritos **antes** da implementação.
-
-- Ciclo RED → GREEN → REFACTOR.
-- Maior entendimento dos requisitos e menor tempo de debug.
-- Promove código de alta qualidade, coeso e com baixo acoplamento.
-- Possui dois estilos:
-  - **Classicista (Chicago)**: foca no resultado final, sem mocks.
-  - **Outside-In (Londres)**: foca na interação entre objetos com uso de mocks.
-
-### 🧪 Tipos de Testes Automatizados
-
-| Tipo           | Descrição                                                                 |
-|----------------|--------------------------------------------------------------------------|
-| Unitário       | Testa métodos isolados. Rápido e confiável.                             |
-| Integração     | Testa conjuntos de componentes. Requer dispositivo/emulador.            |
-| Aceitação (E2E)| Simula o uso real da aplicação. Mais lento, mas cobre o fluxo completo. |
-
----
-
-### 🌀 Kotlin Coroutines
-
-> Permite escrever código assíncrono de forma sequencial e não bloqueante.
-
-- `suspend`: pausa a execução sem travar a thread principal.
-- `withContext(Dispatchers.IO)`: troca de contexto para tarefas pesadas ou de I/O.
-- Usa **Structured Concurrency** para controle e rastreio das tarefas assíncronas.
-- `launch` para tarefas que não retornam valor; `async` para obter resultados com `await`.
-
----
-
-### 🌊 Kotlin Flow
-
-> Stream reativo baseado em coroutines — semelhante ao LiveData ou Observable.
-
-- **Cold Stream**: só emite dados quando é coletado.
-- Fluxo: Emissor (ex: banco ou API) → Flow → Coletor (ex: ViewModel/Repository).
-- Suporta **backpressure**, **concorrência estruturada** e **valores nulos**.
-- Ideal para lidar com streams contínuos de dados (como temperatura do motor, por exemplo).
+- **Kotlin** com Android SDK
+- **MVVM** como padrão arquitetural
+- **Hilt** para injeção de dependência
+- **Retrofit** para consumo da API
+- **Coroutines & Kotlin Flow** para programação assíncrona
+- **LiveData / StateFlow** para atualização reativa da interface
+- **ViewModel** para gerenciamento de estado e lógica de UI
+- **JUnit** e **CoroutineTest** para testes unitários e de aceitação
 
 ---
 
