@@ -1,9 +1,18 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.android.hilt)
 }
+
+val localPropertiesFile = rootProject.file("local.properties")
+
+val localProperties = Properties()
+
+localProperties.load(FileInputStream(localPropertiesFile))
 
 android {
     namespace = "com.sntsb.groovy"
@@ -19,7 +28,7 @@ android {
         buildConfigField(
             "String",
             "BASE_URL",
-            "\"${project.findProperty("BASE_URL") ?: "https://httpbin.org/status/404"}\""
+            "\"${localProperties["BASE_URL"] ?: "https://httpbin.org/status/404/"}\""
         )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
