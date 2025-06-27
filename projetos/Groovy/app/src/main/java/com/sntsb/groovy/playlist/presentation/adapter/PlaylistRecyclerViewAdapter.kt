@@ -42,7 +42,7 @@ class PlaylistRecyclerViewAdapter(
         fun bind(item: Playlist) {
 
             nameView.text = item.name
-            categoryView.text = item.category
+            categoryView.text = item.category.name
             imageView.setImageResource(item.image)
 
             itemView.setOnClickListener {
