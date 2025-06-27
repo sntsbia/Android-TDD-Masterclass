@@ -4,8 +4,10 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.sntsb.groovy.BuildConfig
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.domain.model.Playlist
+import com.sntsb.groovy.playlist.module.PlaylistModule
 import com.sntsb.groovy.playlist.presentation.PlaylistViewModel
 import com.sntsb.groovy.utils.BaseUnitTest
 import com.sntsb.groovy.utils.captureValues
@@ -23,6 +25,11 @@ class PlaylistViewModelShould : BaseUnitTest() {
     private val playlists = mock<List<Playlist>>()
     private val expected = Result.success(playlists)
     private val exception = Result.failure<List<Playlist>>(Exception("Something went wrong"))
+
+    @Test
+    fun printBaseUrl() {
+        println("BASE_URL: ${BuildConfig.BASE_URL}")
+    }
 
     private fun callSuccessfulCaseViewModel(): PlaylistViewModel {
         runBlocking {
