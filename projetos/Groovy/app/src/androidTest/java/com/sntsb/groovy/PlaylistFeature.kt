@@ -1,9 +1,8 @@
 package com.sntsb.groovy
 
-import android.view.View
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -13,8 +12,6 @@ import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assert
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertNotDisplayed
 import com.adevinta.android.barista.internal.matcher.DrawableMatcher.Companion.withDrawable
 import com.sntsb.groovy.utils.BaseUITest
-import org.hamcrest.Matcher
-import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsNot.not
 import org.junit.Rule
 import org.junit.Test
@@ -25,13 +22,6 @@ class PlaylistFeature : BaseUITest() {
     val mActivityRule = ActivityScenarioRule(MainActivity::class.java)
         @Rule get
 
-    private fun withinNstPlaylistItem(
-        targetViewMatcher: Matcher<View>, position: Int
-    ): Matcher<View> {
-        return allOf(
-            targetViewMatcher, isDescendantOfA(nthChildOf(withId(R.id.list), position))
-        )
-    }
 
     @Test
     fun displayScreenTitle() {
@@ -86,5 +76,15 @@ class PlaylistFeature : BaseUITest() {
                 withId(R.id.iv_image), 3
             )
         ).check(matches(withDrawable(R.mipmap.rock))).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun navigateToDetailsScreen() {
+        onView(
+            withinNstPlaylistItem(
+                withId(R.id.iv_image), 0
+            )
+        ).perform(click())
+        assertDisplayed(R.id.playlist_details_root)
     }
 }

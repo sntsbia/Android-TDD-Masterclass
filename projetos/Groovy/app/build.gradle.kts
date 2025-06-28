@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.android.hilt)
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 val localPropertiesFile = rootProject.file("local.properties")
@@ -87,6 +88,9 @@ dependencies {
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.runner)
+    
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     // Hilt
     kapt(libs.hilt.compiler)

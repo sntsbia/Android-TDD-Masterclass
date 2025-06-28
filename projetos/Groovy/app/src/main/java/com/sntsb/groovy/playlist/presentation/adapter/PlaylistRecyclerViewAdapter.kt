@@ -1,7 +1,7 @@
 package com.sntsb.groovy.playlist.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,7 +10,7 @@ import com.sntsb.groovy.databinding.PlaylistItemBinding
 import com.sntsb.groovy.domain.model.Playlist
 
 class PlaylistRecyclerViewAdapter(
-    private val values: List<Playlist>
+    private val values: List<Playlist>, private val onItemClick: (String) -> Unit = { _ -> }
 ) : RecyclerView.Adapter<PlaylistRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,6 +35,7 @@ class PlaylistRecyclerViewAdapter(
         private val nameView: TextView = binding.tvName
         private val categoryView: TextView = binding.tvCategory
         private val imageView: ImageView = binding.ivImage
+        private val playlistItemRoot: View = binding.playlistItemRoot
 
 //        override fun toString(): String {
 //            return super.toString() + " '" + nameView.text + " - " + categoryView.text + "'"
@@ -42,14 +43,12 @@ class PlaylistRecyclerViewAdapter(
 
         fun bind(item: Playlist) {
 
-            Log.e("####", "bind: $item", )
-
             nameView.text = item.name
             categoryView.text = item.category.name
             imageView.setImageResource(item.image)
 
-            itemView.setOnClickListener {
-                // Handle item click, e.g., navigate to details or play the playlist
+            playlistItemRoot.setOnClickListener {
+                onItemClick(item.id)
             }
         }
     }

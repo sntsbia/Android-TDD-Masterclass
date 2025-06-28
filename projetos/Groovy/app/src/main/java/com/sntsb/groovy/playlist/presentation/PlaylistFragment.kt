@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.sntsb.groovy.databinding.FragmentPlaylistBinding
 import com.sntsb.groovy.domain.model.Playlist
 import com.sntsb.groovy.playlist.presentation.adapter.PlaylistRecyclerViewAdapter
@@ -58,12 +58,18 @@ class PlaylistFragment : Fragment() {
         }
     }
 
-    private fun setupList( playlists: List<Playlist>) {
+    private fun setupList(playlists: List<Playlist>) {
 
-        Log.e("PlaylistFragment", "setupList: ${playlists.size}", )
+        Log.e("PlaylistFragment", "setupList: ${playlists.size}")
         with(binding.list) {
             layoutManager = LinearLayoutManager(context)
-            adapter = PlaylistRecyclerViewAdapter(playlists)
+            adapter = PlaylistRecyclerViewAdapter(playlists) { playlistId ->
+                val action =
+                    PlaylistFragmentDirections.actionPlaylistFragmentToPlaylistDetailFragment(
+                        playlistId
+                    )
+                findNavController().navigate(action)
+            }
             visibility = if (playlists.isNotEmpty()) {
                 View.VISIBLE
             } else {
