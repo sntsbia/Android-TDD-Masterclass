@@ -63,7 +63,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.runner)
+    implementation(libs.androidx.runner)
+    implementation(libs.androidx.espresso.idling.resource)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -86,8 +87,6 @@ dependencies {
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.runner)
-
-    implementation(libs.okhttp3.idling.resource)
 
     // Hilt
     kapt(libs.hilt.compiler)

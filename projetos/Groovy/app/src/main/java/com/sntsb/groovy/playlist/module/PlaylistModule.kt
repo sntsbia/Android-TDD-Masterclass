@@ -1,7 +1,5 @@
 package com.sntsb.groovy.playlist.module
 
-import android.support.test.espresso.IdlingResource
-import com.jakewharton.espresso.OkHttp3IdlingResource
 import com.sntsb.groovy.BuildConfig
 import com.sntsb.groovy.data.api.PlaylistAPI
 import com.sntsb.groovy.data.mapper.PlayListMapper
@@ -24,9 +22,6 @@ val client = OkHttpClient()
 object PlaylistModule {
 
     @Provides
-    fun idlingResource() = OkHttp3IdlingResource.create("okhttp", client)
-
-    @Provides
     fun baseUrl(): String {
         // Access BuildConfig inside the function
         return BuildConfig.BASE_URL
@@ -34,20 +29,16 @@ object PlaylistModule {
 
     @Provides
     fun retrofit(baseUrl: String): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        return Retrofit.Builder().baseUrl(baseUrl).client(client)
+            .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
     @Provides
-    fun playlistAPI(retrofit: Retrofit) = retrofit.create(PlaylistAPI::class.java)
+    fun playlistAPI(retrofit: Retrofit): PlaylistAPI = retrofit.create(PlaylistAPI::class.java)
 
     @Provides
     fun playlistRepository(
-        playlistService: PlaylistService,
-        mapper: PlayListMapper
+        playlistService: PlaylistService, mapper: PlayListMapper
     ): PlaylistRepository = PlaylistRepositoryImpl(playlistService, mapper)
 
     @Provides
