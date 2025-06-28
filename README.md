@@ -1,7 +1,7 @@
 # 📚 Android-TDD-Masterclass
 
 Repositório com **projetos práticos** e **anotações** do curso
-["Master Android App Development (Kotlin) with Clean Architecture, TDD, HILT, Espresso & Unit Testing"](https://www.udemy.com/share/103Mhq3@5GTl7c99XZc2NNFIC9XM97I2l-gqh18oPkxRrk8mepJpuali4Sx3F3FaN299wW98Hw==/), da Udemy.
+["Master Android App Development (Kotlin) with Clean Architecture, TDD, HILT, Espresso & Unit Testing"](https://www.udemy.com/share/103Mhq3@5GTl7c99XZc2NNFIC9XM97I2l-gqh18oPkxRrk8mepJpuali4Sx3F3FaN299wW98Hw==/)
 
 ---
 
@@ -72,6 +72,16 @@ Resumo dos principais conceitos abordados no curso:
 
 ---
 
+## 🧭 Navigation Component
+
+- Facilita a implementação de navegação entre telas/fragments no Android
+- Permite a definição visual do fluxo de navegação através do Navigation Graph
+- Suporte a argumentos seguros entre destinos (Safe Args)
+- Integração com o ciclo de vida dos fragments e back stack de forma automática
+- Melhora a escalabilidade e manutenção de apps com múltiplas telas
+
+---
+
 ## 🚀 Práticas Ágeis e S.O.L.I.D
 
 - Iterações curtas com foco claro (Clear Focus)
@@ -98,6 +108,5 @@ Resumo dos principais conceitos abordados no curso:
 
 ## 📌 Créditos
 
-Curso por [Petros Efthymiou](https://www.udemy.com/user/petros-efthymiou-2/) na Udemy
+Curso por [Petros Efthymiou](https://www.udemy.com/user/petros-efthymiou-2/) na Udemy  
 Link do curso: [Acesse aqui](https://www.udemy.com/share/103Mhq3@5GTl7c99XZc2NNFIC9XM97I2l-gqh18oPkxRrk8mepJpuali4Sx3F3FaN299wW98Hw==/)
-
