@@ -267,6 +267,25 @@ Biblioteca criada pelo Google para injeção de dependências, que reduz repeti�
 É construído em cima da biblioteca Dagger, para se beneficiar da performance em tempo de execução, garantindo que certos erros sejam detectados pelo compilador, da escalabilidade e suporte do Android Studio que o Dagger oferece.
 Sua implementação é mais fácil
 
+---
+
+# Jetpack Navigation
+Componente que ajuda na implementação de navegação, de clicks em botões no app bar até drawers de navegação. Assegura a consistência e UX preditiva, aderindo princípios pre estabelecidos e lidando com complexidade como o histórico de telas (*backstack*)
+Consiste em 3 partes:
+
+|                                        Nav Graph                                         |                                                    Nav Host                                                    |             Nav Controller             |
+| :--------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :------------------------------------: |
+| Resource XML com toda informação relacionada a navegação em uma localização centralizada | Um container vazio (Fragment) que exibe os destinos do Nav Graph. Contém a implementação do *Nav Host Default* | Objeto que gerencia a navegação do app |
+
+> [!Success] Prós
+> * Lida com toda transação entre os fragments (sem precisar do supportFragmentManager)
+> * Lida com as ações Up/Back corretamente por padrão (auxiliando nos testes de navegação)
+> * Permite recursos padronizados para animações e transições 
+> * Facilita a implementação e tratamento de deep linking com esforço mínimo
+> * Facilita a implementação de padrões comuns de navegação como drawers ou menus
+> * Tem um plugin Gradle **Safe Args**, que permite navegação de passagem de dados entre os destinos de forma segura
+> * Tem suporte para view model, permitindo compartilhamento de dados relacionados a UI entre os destinos *graph*
+
 
 
 
