@@ -1,5 +1,7 @@
 package com.sntsb.groovy.playlist.module
 
+import android.support.test.espresso.IdlingResource
+import com.jakewharton.espresso.OkHttp3IdlingResource
 import com.sntsb.groovy.BuildConfig
 import com.sntsb.groovy.data.api.PlaylistAPI
 import com.sntsb.groovy.data.mapper.PlayListMapper
@@ -14,11 +16,15 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
+
+val client = OkHttpClient()
 
 @Module
 @InstallIn(SingletonComponent::class)
 object PlaylistModule {
+
+    @Provides
+    fun idlingResource() = OkHttp3IdlingResource.create("okhttp", client)
 
     @Provides
     fun baseUrl(): String {
@@ -30,6 +36,7 @@ object PlaylistModule {
     fun retrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

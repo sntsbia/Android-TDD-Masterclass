@@ -87,12 +87,13 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.runner)
 
+    implementation(libs.okhttp3.idling.resource)
+
     // Hilt
     kapt(libs.hilt.compiler)
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-
 
     androidTestImplementation("com.adevinta.android:barista:4.2.0") {
         exclude(group = "org.jetbrains.kotlin")
