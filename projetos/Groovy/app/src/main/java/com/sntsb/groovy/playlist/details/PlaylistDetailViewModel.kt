@@ -17,7 +17,6 @@ class PlaylistDetailViewModel(
     fun getPlaylistDetails(id: String) {
         isLoading.postValue(true)
 
-
         viewModelScope.launch {
             service.fetchPlaylistDetails(id).collect { result ->
                     playlistDetails.postValue(result)
