@@ -4,12 +4,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.sntsb.groovy.MainActivity
 import com.sntsb.groovy.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.AllOf.allOf
+import org.junit.Rule
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
@@ -24,6 +27,9 @@ abstract class BaseUITest {
 //    fun tearDown() {
 //        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
 //    }
+
+    val mActivityRule = ActivityScenarioRule(MainActivity::class.java)
+        @Rule get
 
     fun withinNstPlaylistItem(
         targetViewMatcher: Matcher<View>, position: Int

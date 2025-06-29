@@ -7,7 +7,6 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.sntsb.groovy.BuildConfig
 import com.sntsb.groovy.data.repository.PlaylistRepositoryImpl
 import com.sntsb.groovy.domain.model.Playlist
-import com.sntsb.groovy.playlist.module.PlaylistModule
 import com.sntsb.groovy.playlist.presentation.PlaylistViewModel
 import com.sntsb.groovy.utils.BaseUnitTest
 import com.sntsb.groovy.utils.captureValues

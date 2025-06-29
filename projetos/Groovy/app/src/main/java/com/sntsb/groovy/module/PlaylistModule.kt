@@ -1,4 +1,4 @@
-package com.sntsb.groovy.playlist.module
+package com.sntsb.groovy.module
 
 import com.sntsb.groovy.BuildConfig
 import com.sntsb.groovy.data.api.PlaylistAPI

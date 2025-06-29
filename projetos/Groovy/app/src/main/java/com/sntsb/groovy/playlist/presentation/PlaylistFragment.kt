@@ -1,7 +1,6 @@
 package com.sntsb.groovy.playlist.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,7 +59,6 @@ class PlaylistFragment : Fragment() {
 
     private fun setupList(playlists: List<Playlist>) {
 
-        Log.e("PlaylistFragment", "setupList: ${playlists.size}")
         with(binding.list) {
             layoutManager = LinearLayoutManager(context)
             adapter = PlaylistRecyclerViewAdapter(playlists) { playlistId ->

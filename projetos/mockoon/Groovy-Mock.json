@@ -38,12 +38,362 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "a070b21f-e694-4749-8a36-0c63b735ba85",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/1",
+      "responses": [
+        {
+          "uuid": "f706c600-ad64-47d4-acd4-caa0f8fdffb5",
+          "body": "{\n  \"id\": \"1\",\n  \"name\": \"Hard Rock Cafe\",\n  \"details\": \"Rock your senses with this timeless signature vibe list. \\n\\n • Poison \\n • You shook me all night \\n • Zombie \\n • Rock'n Me \\n • Thunderstruck \\n • I Hate Myself for Loving you \\n • Crazy \\n • Knockin' on Heavens Door\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "20480837-d43c-4826-997c-58b1be01931d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/2",
+      "responses": [
+        {
+          "uuid": "8113756b-c49a-48df-b4b4-86b30eafd052",
+          "body": "{\n  \"id\": \"2\",\n  \"name\": \"Chilled House\",\n  \"details\": \"Smooth and laid-back vibes for a relaxing day. \\n\\n • Sunset Lover \\n • Cola \\n • Ocean Drive \\n • Waves \\n • Turn Back Time \\n • Intoxicated \\n • This Girl \\n • Faded\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e0fdad45-3212-45b7-8320-8b2757011fc0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/3",
+      "responses": [
+        {
+          "uuid": "f6696b1b-3b1a-4154-9604-78d643c91f6d",
+          "body": "{\n  \"id\": \"3\",\n  \"name\": \"US TOP 40 HITS\",\n  \"details\": \"The hottest hits that are making waves in the US charts. \\n\\n • Blinding Lights \\n • Watermelon Sugar \\n • Good 4 U \\n • Montero \\n • Peaches \\n • Stay \\n • Levitating \\n • Industry Baby\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8a868209-5028-4d04-82da-e32dad4f183e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/4",
+      "responses": [
+        {
+          "uuid": "b6e5bc5a-f36d-4d9a-9211-3e22943b24d3",
+          "body": "{\n  \"id\": \"4\",\n  \"name\": \"90's Rock\",\n  \"details\": \"Take a trip back to the golden era of rock. \\n\\n • Smells Like Teen Spirit \\n • Wonderwall \\n • Creep \\n • Black Hole Sun \\n • Come As You Are \\n • Killing in the Name \\n • November Rain \\n • Everlong\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "aad46477-eb8a-4749-9d1a-a5cfb20c7a94",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/5",
+      "responses": [
+        {
+          "uuid": "3ec43f2c-494c-4464-a251-c4a6c37339a4",
+          "body": "{\n  \"id\": \"5\",\n  \"name\": \"Purple Jazz\",\n  \"details\": \"A smooth and sophisticated journey through jazz tones. \\n\\n • So What \\n • Take Five \\n • Round Midnight \\n • My Favorite Things \\n • Cantaloupe Island \\n • Blue in Green \\n • Footprints \\n • All Blues\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8a8cf19e-cc4f-4622-bb93-adfea6213a30",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/6",
+      "responses": [
+        {
+          "uuid": "1c0c4007-c7ba-455f-afb2-cb4a32cf1ff7",
+          "body": "{\n  \"id\": \"6\",\n  \"name\": \"90's flashback\",\n  \"details\": \"Pop classics from the 90s that will never get old. \\n\\n • Baby One More Time \\n • Wannabe \\n • Genie in a Bottle \\n • No Scrubs \\n • Torn \\n • I Want It That Way \\n • Livin' La Vida Loca \\n • Believe\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7be73bfb-9b49-4bc8-aa51-6f6b82613290",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/7",
+      "responses": [
+        {
+          "uuid": "6ed227be-cc19-4e6b-ab9e-99f4492df4df",
+          "body": "{\n  \"id\": \"7\",\n  \"name\": \"Machine Funk\",\n  \"details\": \"Electronic beats with funk-infused energy. \\n\\n • Around the World \\n • Get Lucky \\n • Da Funk \\n • Groovejet \\n • Starlight \\n • Music Sounds Better with You \\n • Digital Love \\n • One More Time\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2c4d5f83-d27f-4612-b87b-2d4297001390",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/8",
+      "responses": [
+        {
+          "uuid": "b9a217c0-aeea-4797-b600-81c7ae1fbd69",
+          "body": "{\n  \"id\": \"8\",\n  \"name\": \"Let's Groove\",\n  \"details\": \"A fusion of styles for the ultimate groove session. \\n\\n • Let’s Groove \\n • Got to Be Real \\n • September \\n • Celebration \\n • Don’t Stop ‘Til You Get Enough \\n • Brick House \\n • Just Dance \\n • Treasure\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "09338b65-bac3-4a6d-aae0-6c4f52ba4a51",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/9",
+      "responses": [
+        {
+          "uuid": "b690b033-4936-4f93-bab6-2ae8f0c98b45",
+          "body": "{\n  \"id\": \"9\",\n  \"name\": \"Feel The Beat\",\n  \"details\": \"High-energy tracks that will get your heart pumping. \\n\\n • Levels \\n • Animals \\n • Wake Me Up \\n • Greyhound \\n • Don’t You Worry Child \\n • Reload \\n • Intoxicated \\n • Tremor\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3374c69b-b88b-49e7-a537-521e6890400f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "playlists/9",
+      "responses": [
+        {
+          "uuid": "17cd29e5-38bf-48c4-b52e-a57ddf942b25",
+          "body": "{\n  \"id\": \"10\",\n  \"name\": \"Best Songs 2020\",\n  \"details\": \"The best tracks from a year we won’t forget. \\n\\n • Blinding Lights \\n • Don’t Start Now \\n • Savage Love \\n • Rain on Me \\n • Adore You \\n • The Box \\n • Circles \\n • Say So\"\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "61b032ac-6458-45eb-b331-db39fbc14467"
+    },
+    {
+      "type": "route",
+      "uuid": "a070b21f-e694-4749-8a36-0c63b735ba85"
+    },
+    {
+      "type": "route",
+      "uuid": "20480837-d43c-4826-997c-58b1be01931d"
+    },
+    {
+      "type": "route",
+      "uuid": "e0fdad45-3212-45b7-8320-8b2757011fc0"
+    },
+    {
+      "type": "route",
+      "uuid": "8a868209-5028-4d04-82da-e32dad4f183e"
+    },
+    {
+      "type": "route",
+      "uuid": "aad46477-eb8a-4749-9d1a-a5cfb20c7a94"
+    },
+    {
+      "type": "route",
+      "uuid": "8a8cf19e-cc4f-4622-bb93-adfea6213a30"
+    },
+    {
+      "type": "route",
+      "uuid": "7be73bfb-9b49-4bc8-aa51-6f6b82613290"
+    },
+    {
+      "type": "route",
+      "uuid": "2c4d5f83-d27f-4612-b87b-2d4297001390"
+    },
+    {
+      "type": "route",
+      "uuid": "09338b65-bac3-4a6d-aae0-6c4f52ba4a51"
+    },
+    {
+      "type": "route",
+      "uuid": "3374c69b-b88b-49e7-a537-521e6890400f"
     }
   ],
   "proxyMode": false,
