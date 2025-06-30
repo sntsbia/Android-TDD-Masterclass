@@ -7,6 +7,7 @@ import com.sntsb.groovy.data.services.PlaylistDetailsServiceImpl
 import com.sntsb.groovy.domain.model.PlaylistDetail
 import com.sntsb.groovy.playlist.details.PlaylistDetailViewModel
 import com.sntsb.groovy.utils.BaseUnitTest
+import com.sntsb.groovy.utils.captureValues
 import com.sntsb.groovy.utils.getValueForTest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
@@ -80,6 +81,45 @@ class PlaylistDetailViewModelShould : BaseUnitTest() {
         Assert.assertEquals(
             exception, viewModel.playlistDetails.getValueForTest()
         )
+    }
+
+    private fun validateIsLoadingState(
+        viewModel: PlaylistDetailViewModel, expected: Boolean, search: SearchEnum
+    ) = runTest {
+        viewModel.isLoading.captureValues {
+            viewModel.getPlaylistDetails(id)
+
+            viewModel.playlistDetails.getValueForTest()
+
+            println(values)
+            when (search) {
+                SearchEnum.FIRST -> Assert.assertEquals(expected, values[0])
+                SearchEnum.LAST -> Assert.assertEquals(expected, values.last())
+            }
+        }
+    }
+
+    @Test
+    fun showLoadingStateWhenWhileLoading() = runTest {
+        val viewModel = callSuccessfulCaseViewModel()
+
+        validateIsLoadingState(viewModel, true, SearchEnum.FIRST)
+
+    }
+
+    @Test
+    fun hideLoadingStateAfterPlaylistDetailLoad() = runTest {
+        val viewModel = callSuccessfulCaseViewModel()
+
+        validateIsLoadingState(viewModel, false, SearchEnum.LAST)
+
+    }
+
+    @Test
+    fun hideLoadingStateWhenFetchingPlaylistsFailDetail() = runTest {
+        val viewModel = callFailureCaseViewModel()
+
+        validateIsLoadingState(viewModel, false, SearchEnum.LAST)
     }
 
 }

@@ -56,4 +56,8 @@ abstract class BaseUITest {
             }
         }
     }
+
+    enum class SearchEnum {
+        FIRST, LAST
+    }
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
+import com.sntsb.groovy.R
 import com.sntsb.groovy.databinding.FragmentPlaylistDetailBinding
 import com.sntsb.groovy.domain.model.PlaylistDetail
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,19 +45,26 @@ class PlaylistDetailFragment : Fragment() {
 
     fun initObserver() {
         viewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+            binding.detailProgressBar.visibility = if (it) View.VISIBLE else View.GONE
         }
 
         viewModel.playlistDetails.observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
                 result.getOrNull()?.let { playlistDetails ->
                     setupUI(playlistDetails)
-                    // Update other UI elements with playlist details
                 } ?: run {
-                    // Handle empty details case
+                    Snackbar.make(
+                        binding.root,
+                        requireContext().getString(R.string.generic_error_message),
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
             } else {
-                // Handle error case
+                Snackbar.make(
+                    binding.root,
+                    requireContext().getString(R.string.generic_error_message),
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
         }
     }

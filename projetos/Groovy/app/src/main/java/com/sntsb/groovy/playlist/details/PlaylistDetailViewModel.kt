@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sntsb.groovy.data.services.PlaylistDetailsServiceImpl
 import com.sntsb.groovy.domain.model.PlaylistDetail
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class PlaylistDetailViewModel(
@@ -15,16 +16,16 @@ class PlaylistDetailViewModel(
 
     val playlistDetails = MutableLiveData<Result<PlaylistDetail>>()
     fun getPlaylistDetails(id: String) {
-        isLoading.postValue(true)
-
         viewModelScope.launch {
-            service.fetchPlaylistDetails(id).collect { result ->
-                    playlistDetails.postValue(result)
+            isLoading.postValue(true)
+
+            service.fetchPlaylistDetails(id).onEach {
                     isLoading.postValue(false)
+                }.collect { result ->
+                    playlistDetails.postValue(result)
                 }
 
         }
-
     }
 
 }

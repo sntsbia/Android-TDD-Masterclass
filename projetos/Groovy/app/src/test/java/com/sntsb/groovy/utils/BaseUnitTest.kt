@@ -10,4 +10,8 @@ open class BaseUnitTest {
 
     @get: Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    enum class SearchEnum {
+        FIRST, LAST
+    }
 }

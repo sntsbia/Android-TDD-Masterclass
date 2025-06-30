@@ -78,10 +78,6 @@ class PlaylistViewModelShould : BaseUnitTest() {
         Assert.assertEquals(expected, viewModel.playlists.getValueForTest())
     }
 
-    enum class SearchEnum {
-        FIRST, LAST
-    }
-
     private fun validateIsLoadingState(
         viewModel: PlaylistViewModel, expected: Boolean, search: SearchEnum
     ) = runTest {

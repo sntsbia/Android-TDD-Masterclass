@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 class PlaylistDetailsServiceImpl @Inject constructor(
     private val api: PlaylistAPI
-) {
-    suspend fun fetchPlaylistDetails(id: String): Flow<Result<PlaylistDetail>> {
+) : PlaylistDetailsService {
+    override suspend fun fetchPlaylistDetails(id: String): Flow<Result<PlaylistDetail>> {
         return flow {
             emit(Result.success(api.fetchPlaylistDetails(id)))
         }.catch {

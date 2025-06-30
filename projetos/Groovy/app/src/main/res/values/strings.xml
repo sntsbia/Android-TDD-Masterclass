@@ -2,4 +2,5 @@
     <string name="app_name">Groovy</string>
     <string name="playlists_screen_title">Playlists</string>
     <string name="playlists_image">Playlist\'s image</string>
+    <string name="generic_error_message">Something went wrong</string>
 </resources>
