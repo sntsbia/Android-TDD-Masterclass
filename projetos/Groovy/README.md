@@ -1,6 +1,16 @@
 # 🎵 Groovy - App de Lista de Playlists
 
-Groovy é um aplicativo Android desenvolvido como parte do curso Android TDD Masterclass. Ele apresenta uma lista de playlists consumida de uma API simulada, utilizando uma arquitetura moderna baseada em MVVM e testes automatizados.
+Groovy é um aplicativo Android desenvolvido como parte do curso Android TDD Masterclass. Ele apresenta uma lista de playlists consumida de uma API, utilizando uma arquitetura moderna baseada em MVVM e testes automatizados.
+
+---
+
+## ☁️ API
+
+A API de playlists utilizada por este aplicativo está hospedada no Google Cloud e foi criada a partir de uma imagem Docker. O código-fonte da API está disponível em um repositório separado no GitHub:
+
+- **Repositório da API:** [sntsbia/playlists-imersao](https://github.com/sntsbia/playlists-imersao)
+
+Isso elimina a necessidade de configurar um servidor local para executar o aplicativo.
 
 ---
 
@@ -13,7 +23,6 @@ Groovy é um aplicativo Android desenvolvido como parte do curso Android TDD Mas
 - **Coroutines & Kotlin Flow** para programação assíncrona
 - **LiveData / StateFlow** para atualização reativa da interface
 - **ViewModel** para gerenciamento de estado e lógica de UI
-- **Mockoon** como servidor local para simular a API de playlists
 - **JUnit** e **Espresso** para testes unitários e de aceitação
 
 ---
@@ -35,9 +44,13 @@ As imagens utilizadas como capa das playlists foram geradas com auxílio de ferr
 
 ## 🚀 Execução
 
-1. Clone o repositório
-2. Inicie o servidor da API com o **Mockoon**
-3. Execute o app no Android Studio
+A maneira mais simples de testar o aplicativo é instalando o APK diretamente no seu dispositivo Android.
+
+1.  Navegue até a pasta `apks/` neste repositório.
+2.  Baixe o arquivo `.apk` mais recente.
+3.  Instale o APK no seu dispositivo.
+
+Como alternativa, você pode clonar o repositório e compilar o projeto no Android Studio.
 
 ---
 
@@ -66,19 +79,4 @@ groovy/
 ## 📌 Observações
 
 - Este projeto serve como laboratório de aprendizado para Clean Architecture, TDD e práticas modernas de desenvolvimento Android.
-- A API de playlists está localizada no Mockoon, rodando localmente para simular o backend.
-
----
-
-## ⚠️ Configuração Adicional
-
-Para que o aplicativo funcione corretamente com a API local via Mockoon, é necessário adicionar o IP da máquina no arquivo `local.properties` do projeto Android Studio:
-
-```
-# local.properties
-BASE_URL=SEU_IP_LOCAL
-```
-
-Substitua `SEU_IP_LOCAL` pelo IP da sua máquina (por exemplo, `192.168.0.101`).
-
-Esse valor será usado para configurar dinamicamente a base URL da API no momento da build.
+- A API de playlists é consumida de um serviço remoto, não sendo necessário rodar um backend local.

@@ -78,10 +78,10 @@
       "endpoint": "playlists/2",
       "responses": [
         {
-          "uuid": "8113756b-c49a-48df-b4b4-86b30eafd052",
-          "body": "{\n  \"id\": \"2\",\n  \"name\": \"Chilled House\",\n  \"details\": \"Smooth and laid-back vibes for a relaxing day. \\n\\n • Sunset Lover \\n • Cola \\n • Ocean Drive \\n • Waves \\n • Turn Back Time \\n • Intoxicated \\n • This Girl \\n • Faded\"\n}",
-          "latency": 500,
-          "statusCode": 200,
+          "uuid": "1d150eb4-0e5e-4832-a525-85d1340fd9ca",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 404,
           "label": "",
           "headers": [],
           "bodyType": "INLINE",
