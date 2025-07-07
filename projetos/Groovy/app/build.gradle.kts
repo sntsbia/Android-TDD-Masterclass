@@ -29,8 +29,13 @@ android {
         buildConfigField(
             "String",
             "BASE_URL",
-            "\"${localProperties["BASE_URL"] ?: "https://httpbin.org/status/404/"}\""
+            "\"https://playlists-imersao-791768160621.southamerica-east1.run.app/\""
         )
+//        buildConfigField(
+//            "String",
+//            "BASE_URL",
+//            "\"${localProperties["BASE_URL"] ?: "https://httpbin.org/status/404/"}\""
+//        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
