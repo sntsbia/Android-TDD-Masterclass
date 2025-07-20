@@ -1,0 +1,62 @@
+[
+  {
+    "id":1,
+    "name":"Hard Rock Cafe",
+    "category":"rock",
+    "details":"Rock your senses with this timeless signature vibe list. \n\n • Poison \n • You shook me all night \n • Zombie \n • Rock'n Me \n • Thunderstruck \n • I Hate Myself for Loving you \n • Crazy \n • Knockin' on Heavens Door"
+  },
+  {
+    "id":2,
+    "name":"Chilled House",
+    "category":"house",
+    "details":"Smooth and laid-back vibes for a relaxing day. \n\n • Sunset Lover \n • Cola \n • Ocean Drive \n • Waves \n • Turn Back Time \n • Intoxicated \n • This Girl \n • Faded"
+  },
+  {
+    "id":3,
+    "name":"US TOP 40 HITS",
+    "category":"mixed",
+    "details":"The hottest hits that are making waves in the US charts. \n\n • Blinding Lights \n • Watermelon Sugar \n • Good 4 U \n • Montero \n • Peaches \n • Stay \n • Levitating \n • Industry Baby"
+  },
+  {
+    "id":4,
+    "name":"90's Rock",
+    "category":"rock",
+    "details":"Take a trip back to the golden era of rock. \n\n • Smells Like Teen Spirit \n • Wonderwall \n • Creep \n • Black Hole Sun \n • Come As You Are \n • Killing in the Name \n • November Rain \n • Everlong"
+  },
+  {
+    "id":5,
+    "name":"Purple Jazz",
+    "category":"jazz",
+    "details":"A smooth and sophisticated journey through jazz tones. \n\n • So What \n • Take Five \n • Round Midnight \n • My Favorite Things \n • Cantaloupe Island \n • Blue in Green \n • Footprints \n • All Blues"
+  },
+  {
+    "id":6,
+    "name":"90's flashback",
+    "category":"pop",
+    "details":"Pop classics from the 90s that will never get old. \n\n • Baby One More Time \n • Wannabe \n • Genie in a Bottle \n • No Scrubs \n • Torn \n • I Want It That Way \n • Livin' La Vida Loca \n • Believe"
+  },
+  {
+    "id":7,
+    "name":"Machine Funk",
+    "category":"electro",
+    "details":"Electronic beats with funk-infused energy. \n\n • Around the World \n • Get Lucky \n • Da Funk \n • Groovejet \n • Starlight \n • Music Sounds Better with You \n • Digital Love \n • One More Time"
+  },
+  {
+    "id":8,
+    "name":"Let's Groove",
+    "category":"mixed",
+    "details":"A fusion of styles for the ultimate groove session. \n\n • Let’s Groove \n • Got to Be Real \n • September \n • Celebration \n • Don’t Stop ‘Til You Get Enough \n • Brick House \n • Just Dance \n • Treasure"
+  },
+  {
+    "id":9,
+    "name":"Feel The Beat",
+    "category":"electro",
+    "details":"High-energy tracks that will get your heart pumping. \n\n • Levels \n • Animals \n • Wake Me Up \n • Greyhound \n • Don’t You Worry Child \n • Reload \n • Intoxicated \n • Tremor"
+  },
+  {
+    "id":10,
+    "name":"Best Songs 2020",
+    "category":"mixed",
+    "details":"The best tracks from a year we won’t forget. \n\n • Blinding Lights \n • Don’t Start Now \n • Savage Love \n • Rain on Me \n • Adore You \n • The Box \n • Circles \n • Say So"
+  }
+]
